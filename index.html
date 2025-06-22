@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ResuDay | Smart Resume Reviewer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg-light: linear-gradient(135deg, #e0f7fa, #e1bee7);
+      --bg-dark: #121212;
+      --text-dark: #333;
+      --text-light: #eee;
+      --card-light: #ffffffee;
+      --card-dark: #1f1f1f;
+      --primary: #7e57c2;
+      --primary-dark: #5e35b1;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-light);
+      margin: 0;
+      padding: 2rem;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-light);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 3rem;
+      color: #4a148c;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #6a1b9a;
+      margin-bottom: 2rem;
+    }
+
+    body.dark h1,
+    body.dark h2,
+    body.dark h3 {
+      color: #e1bee7;
+    }
+
+    form {
+      background-color: var(--card-light);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s;
+    }
+
+    body.dark form {
+      background-color: var(--card-dark);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+    }
+
+    input[type="file"],
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1.2rem;
+      border: 2px solid var(--primary);
+      border-radius: 10px;
+      margin-bottom: 1.5rem;
+      background-color: #f3e5f5;
+      color: #222;
+      box-sizing: border-box;
+    }
+
+    body.dark textarea,
+    body.dark input[type="file"] {
+      background-color: #2c2c2c;
+      color: #fff;
+      border-color: #9575cd;
+    }
+
+    button {
+      background-color: var(--primary);
+      color: white;
+      font-size: 1.2rem;
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background-color: var(--primary-dark);
+      transform: scale(1.05);
+    }
+
+    #result {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: white;
+      border-left: 8px solid var(--primary);
+      border-radius: 12px;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    body.dark #result {
+      background: #1f1f1f;
+      color: var(--text-light);
+    }
+
+    h3 {
+      text-align: center;
+      font-size: 2rem;
+      margin-top: 3rem;
+      color: #4a148c;
+    }
+
+    .toggle-container {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .toggle-container label {
+      font-size: 1rem;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .toggle-container input {
+      margin-left: 10px;
+      transform: scale(1.5);
+      cursor: pointer;
+    }
+
+    body.dark .toggle-container label {
+      color: #eee;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 600px) {
+      body {
+        padding: 1rem;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      textarea {
+        font-size: 1rem;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="toggle-container">
+      <label for="darkModeToggle">🌗 Toggle Dark Mode
+        <input type="checkbox" id="darkModeToggle">
+      </label>
+    </div>
+
+    <h1>ResuDay</h1>
+    <h2>Upload Resume & Paste Job Description</h2>
+
+    <form id="reviewForm">
+      <input type="file" name="resume" required>
+      <textarea name="job_description" rows="10" placeholder="Paste job description here..."></textarea>
+      <button type="submit">Evaluate</button>
+    </form>
+
+    <h3>Result:</h3>
+    <div id="result"></div>
+  </div>
+  <script src="/static/main.js" defer></script>
+</body>
+</html>
