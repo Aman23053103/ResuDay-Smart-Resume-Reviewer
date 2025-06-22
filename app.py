@@ -3,7 +3,7 @@ import fitz  # PyMuPDF
 import google.generativeai as genai
 
 # Configure Gemini API
-genai.configure(api_key="AIzaSyASJrZ6FgGoSf2YBOo-C1xIvhP8qfib74c")
+genai.configure(api_key="YOUR API KEY")
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 app = Flask(__name__)
